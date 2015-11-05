@@ -3,7 +3,9 @@
 class Home extends Controller {
 
     action_index() {
-        return View.send('home.index');
+        return View.render('index', {
+            title: 'home.action_index'
+        });
     }
 
     action_json() {

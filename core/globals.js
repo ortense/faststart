@@ -20,6 +20,10 @@ global.View = class View {
     static json(object) {
         return (req, res) => res.json(object);
     }
+
+    static render(view, locals, cb) {
+        return (req, res) => res.render(view, locals, cb);
+    }
 };
 
 global.Controller = class Controller extends Base {
