@@ -22,6 +22,13 @@ global.View = class View {
     }
 
     static render(view, locals, cb) {
+        if (locals && 'function' === typeof locals){
+            return (req, res) => {
+                locals(locals => {
+                    res.render(view, locals, cb);
+                });
+            }
+        }
         return (req, res) => res.render(view, locals, cb);
     }
 };

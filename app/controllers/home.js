@@ -8,6 +8,16 @@ class Home extends Controller {
         });
     }
 
+    action_async() {
+        return View.render('index', function(next) {
+            //run async code
+            setTimeout(() => {
+                //set locals
+                next({title: 'home.action_async'});
+            }, 10);
+        });
+    }
+
     action_json() {
         return View.json({home:'json'});
     }
