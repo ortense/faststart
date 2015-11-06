@@ -25,6 +25,18 @@ class Home extends Controller {
     other() {
         return View.send('home.other');
     }
+
+    /** Como fazer isso funcionar?
+     * get: /hello
+     * get: /hello/:name
+     * get: /hello/:name/:lastname
+     */
+    action_hello(name) {
+        name = name || 'word';
+        return View.render('index', {
+            title: `Hello ${name.charAt(0).toUpperCase()}${name.slice(1)}!!`
+        });
+    }
 }
 
 module.exports = Home;
